@@ -1,0 +1,63 @@
+.container {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--bg-surface);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 48px;
+}
+
+.languageBadge {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.actionButton {
+  font-size: var(--font-size-sm) !important;
+  padding: var(--spacing-xs) var(--spacing-sm) !important;
+}
+
+.editorWrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.editorWrapper :global(.monaco-editor) {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.editorWrapper :global(.monaco-editor .margin) {
+  background-color: var(--bg-tertiary);
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

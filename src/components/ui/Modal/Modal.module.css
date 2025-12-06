@@ -1,0 +1,144 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-overlay);
+  backdrop-filter: blur(2px);
+}
+
+.modalWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: calc(100vh - var(--spacing-xl));
+  overflow: hidden;
+}
+
+.modal {
+  background-color: var(--bg-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  animation: modalSlideIn 0.3s var(--transition-timing);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Sizes */
+.small {
+  width: 100%;
+  max-width: 400px;
+}
+
+.medium {
+  width: 100%;
+  max-width: 600px;
+}
+
+.large {
+  width: 100%;
+  max-width: 800px;
+}
+
+.full {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.closeButton {
+  margin-left: var(--spacing-md);
+  flex-shrink: 0;
+}
+
+.closeButtonFloating {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+}
+
+/* Content */
+.content {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.large .content,
+.full .content {
+  padding: var(--spacing-xl);
+}
+
+/* Footer */
+.footer {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
+}
+
+.large .footer,
+.full .footer {
+  padding: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .modalContainer {
+    padding: var(--spacing-sm);
+  }
+  
+  .modal {
+    max-height: calc(100vh - var(--spacing-lg));
+  }
+  
+  .header,
+  .content,
+  .footer {
+    padding: var(--spacing-md);
+  }
+}

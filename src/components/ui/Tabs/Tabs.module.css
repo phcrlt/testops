@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  gap: var(--spacing-xs);
+  position: relative;
+}
+
+/* Variants */
+.default {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pills {
+  gap: var(--spacing-xs);
+}
+
+.underline {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Sizes */
+.small {
+  font-size: var(--font-size-sm);
+}
+
+.medium {
+  font-size: var(--font-size-base);
+}
+
+.large {
+  font-size: var(--font-size-lg);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.fullWidth .tab {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Tab */
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast) var(--transition-timing);
+  position: relative;
+  white-space: nowrap;
+}
+
+.tab:hover:not(.disabled) {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+/* Default variant */
+.default .tab {
+  border-bottom: 2px solid transparent;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  margin-bottom: -1px;
+}
+
+.default .tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  background-color: var(--bg-active);
+}
+
+/* Pills variant */
+.pills .tab {
+  border-radius: var(--border-radius);
+}
+
+.pills .tab.active {
+  background-color: var(--color-primary);
+  color: var(--text-on-primary);
+}
+
+.pills .tab.active:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Underline variant */
+.underline .tab {
+  border-bottom: 2px solid transparent;
+}
+
+.underline .tab.active {
+  color: var(--color-primary);
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: transform var(--transition-normal) var(--transition-timing);
+  will-change: transform;
+}
+
+/* Content */
+.tabIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabLabel {
+  line-height: 1;
+}
+
+.badge {
+  background-color: var(--color-error);
+  color: var(--text-on-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  margin-left: var(--spacing-xs);
+}
+
+/* States */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  color: var(--text-secondary);
+  background-color: transparent;
+}

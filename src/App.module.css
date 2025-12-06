@@ -1,0 +1,28 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainLayout {
+  display: flex;
+  flex: 1;
+  background-color: var(--bg-secondary);
+}
+
+.mainContent {
+  flex: 1;
+  padding: var(--spacing-xl);
+  overflow-y: auto;
+  background-color: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .mainLayout {
+    flex-direction: column;
+  }
+  
+  .mainContent {
+    padding: var(--spacing-md);
+  }
+}

@@ -1,0 +1,113 @@
+.tableContainer {
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+/* Header */
+thead {
+  background-color: var(--bg-tertiary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  position: relative;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable:hover {
+  background-color: var(--bg-hover);
+}
+
+.headerCell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.sortIcon {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+  transition: opacity var(--transition-fast) var(--transition-timing);
+}
+
+.sortable:hover .sortIcon {
+  opacity: 1;
+}
+
+.sortIconActive {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+/* Body */
+td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color-light);
+  color: var(--text-primary);
+}
+
+/* Striped */
+.striped tbody tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+/* Hoverable */
+.hoverable tbody tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Compact */
+.compact th,
+.compact td {
+  padding: var(--spacing-sm);
+}
+
+.compact .headerCell {
+  font-size: var(--font-size-sm);
+}
+
+/* Empty state */
+.emptyCell {
+  text-align: center !important;
+  color: var(--text-tertiary);
+  padding: var(--spacing-2xl) !important;
+  font-style: italic;
+}
+
+/* Loading state */
+.loading td {
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.skeleton {
+  height: 20px;
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-hover) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

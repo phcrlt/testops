@@ -1,0 +1,118 @@
+:root {
+  /* Цвета в стиле Android Studio */
+  --color-primary: #1a73e8;
+  --color-primary-dark: #0d47a1;
+  --color-primary-light: #e8f0fe;
+  --color-secondary: #34a853;
+  --color-secondary-light: #e6f4ea;
+  --color-error: #ea4335;
+  --color-error-light: #fce8e6;
+  --color-warning: #fbbc04;
+  --color-warning-light: #fef7e0;
+  --color-info: #4285f4;
+  --color-info-light: #e8f0fe;
+  
+  /* Фоны */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f4;
+  --bg-surface: #ffffff;
+  --bg-hover: #f1f3f4;
+  --bg-active: #e8f0fe;
+  --bg-overlay: rgba(32, 33, 36, 0.6);
+  
+  /* Текст */
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-tertiary: #9aa0a6;
+  --text-disabled: #9aa0a6;
+  --text-on-primary: #ffffff;
+  --text-on-secondary: #ffffff;
+  
+  /* Границы */
+  --border-color: #dadce0;
+  --border-color-light: #e8eaed;
+  --border-color-dark: #80868b;
+  --border-radius-sm: 4px;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 20px;
+  
+  /* Тени */
+  --shadow-sm: 0 1px 2px rgba(60, 64, 67, 0.1);
+  --shadow-md: 0 2px 6px rgba(60, 64, 67, 0.15);
+  --shadow-lg: 0 4px 12px rgba(60, 64, 67, 0.2);
+  --shadow-xl: 0 8px 24px rgba(60, 64, 67, 0.25);
+  
+  /* Отступы */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  
+  /* Шрифты */
+  --font-family: 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Mono', 'Courier New', monospace;
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  
+  /* Высота строки */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.75;
+  
+  /* Z-index уровни */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* Анимации */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Тёмная тема */
+[data-theme="dark"] {
+  --color-primary: #8ab4f8;
+  --color-primary-dark: #669df6;
+  --color-primary-light: #1e3a5f;
+  --color-secondary: #81c995;
+  --color-secondary-light: #1e3a2c;
+  --color-error: #f28b82;
+  --color-error-light: #3c1e1e;
+  --color-warning: #fdd663;
+  --color-warning-light: #3c2e1e;
+  --color-info: #8ab4f8;
+  --color-info-light: #1e3a5f;
+  
+  --bg-primary: #202124;
+  --bg-secondary: #292a2d;
+  --bg-tertiary: #35363a;
+  --bg-surface: #292a2d;
+  --bg-hover: #35363a;
+  --bg-active: #1e3a5f;
+  
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --text-tertiary: #80868b;
+  --text-disabled: #5f6368;
+  
+  --border-color: #5f6368;
+  --border-color-light: #3c4043;
+  --border-color-dark: #9aa0a6;
+}

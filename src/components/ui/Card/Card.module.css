@@ -1,0 +1,61 @@
+.card {
+  background-color: var(--bg-surface);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-normal) var(--transition-timing);
+}
+
+/* Variants */
+.default {
+  border: 1px solid var(--border-color);
+}
+
+.elevated {
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.outlined {
+  border: 2px solid var(--border-color);
+}
+
+.filled {
+  background-color: var(--bg-tertiary);
+  border: none;
+}
+
+/* Padding */
+.padding-none {
+  padding: 0;
+}
+
+.padding-small {
+  padding: var(--spacing-md);
+}
+
+.padding-medium {
+  padding: var(--spacing-lg);
+}
+
+.padding-large {
+  padding: var(--spacing-xl);
+}
+
+/* States */
+.hoverable:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-color-dark);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
