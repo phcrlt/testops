@@ -39,8 +39,8 @@ AI-ассистент для автоматизации работы QA-инже
 ### Установка
 ```bash
 # Клонирование репозитория
-git clone https://github.com/cloud-ru/testops-copilot-frontend.git
-cd testops-copilot-frontend
+git clone https://github.com/phcrlt/testops.git
+cd testops-copilot
 
 # Установка зависимостей
 npm install
