@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    volumes: ["./backend:/app"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+  frontend:  # Интеграция с существующим React
+    build: .
+    ports: ["3000:3000"]
+  db-stub:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: testops
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+  allure-server:
+    image: frankescobar/allure-docker-service
+    ports: ["5050:5050"]
+    volumes: ["./allure-results:/app/allure-results"]
+  test-runner:
+    build: ./backend
+    command: pytest tests/ --cov --alluredir=allure-results
+    depends_on:
+      backend: { condition: service_healthy }
+    volumes: ["./backend:/app", "./allure-results:/allure-results"]
