@@ -1,3 +1,5 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 import pytest
 from backend.base import parse_requirements
 from backend.agent import generate_test

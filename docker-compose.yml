@@ -1,27 +1,61 @@
-version: '3.8'
 services:
   backend:
-    build: ./backend
-    ports: ["8000:8000"]
-    volumes: ["./backend:/app"]
+    build: ./backend  # ВСЁ ПРАВИЛЬНО - Dockerfile в ./backend/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app  # Монтируем весь бэкенд
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000"]
-  frontend:  # Интеграция с существующим React
-    build: .
-    ports: ["3000:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ПРОБЛЕМА ЗДЕСЬ: frontend пытается собраться из корня
+  frontend:
+    # ВАРИАНТ 1: Если фронтенд действительно есть в корне проекта
+    build:
+      context: .  # или ./frontend если есть такая папка
+      dockerfile: Dockerfile.frontend  # если Dockerfile называется иначе
+    
+    # ВАРИАНТ 2: Если фронтенда нет, удалите этот сервис
+    # ВАРИАНТ 3: Если используете готовый образ
+    # image: nginx:alpine
+    # ports:
+    #   - "3000:3000"
+    
+    ports:
+      - "3000:3000"
+
   db-stub:
     image: postgres:13
     environment:
       POSTGRES_DB: testops
+      POSTGRES_PASSWORD: password  # ОБЯЗАТЕЛЬНО добавьте
     healthcheck:
-      test: ["CMD", "pg_isready"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
   allure-server:
     image: frankescobar/allure-docker-service
-    ports: ["5050:5050"]
-    volumes: ["./allure-results:/app/allure-results"]
+    ports:
+      - "5050:5050"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: 1
+    volumes:
+      - ./allure-results:/app/allure-results
+
   test-runner:
-    build: ./backend
-    command: pytest tests/ --cov --alluredir=allure-results
+    build: ./backend  # Тот же Dockerfile что и у backend
+    command: ["pytest", "tests/", "--cov", "--alluredir=allure-results"]
     depends_on:
-      backend: { condition: service_healthy }
-    volumes: ["./backend:/app", "./allure-results:/allure-results"]
+      backend:
+        condition: service_healthy
+      db-stub:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./allure-results:/app/allure-results
