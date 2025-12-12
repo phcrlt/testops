@@ -7,7 +7,6 @@ from typing import List, Optional, Mapping, Any
 # Stub LLM (замените на Cloud.ru)
 class StubLLM(BaseLLM):
     def _generate(self, prompts: List[str], stop: Optional[List[str]] = None) -> LLMResult:
-        """Generate sample Allure code for testing."""
         sample_code = """
 import allure
 
@@ -17,10 +16,10 @@ import allure
 @allure.story('Story')
 def test_func():
     with allure.step('Arrange'):
-        # Arrange code
+        # Arrange
         pass
     with allure.step('Act'):
-        # Act code
+        # Act
         pass
     with allure.step('Assert'):
         allure.attach('data', 'name', allure.attachment_type.TEXT)
@@ -39,7 +38,7 @@ def test_func():
 
 # Определение prompt и chain
 prompt = PromptTemplate(input_variables=["req"], template="Generate Allure test for {req}")
-chain = LLMChain(llm=StubLLM(), prompt=prompt)  # В реале: Cloud.ru client
+chain = LLMChain(llm=StubLLM(), prompt=prompt)
 
 def generate_test(req):
     """Generate test code using LLM."""
@@ -51,5 +50,5 @@ def generate_and_validate(req):
     code = generate_test(req)
     report = validate_allure_code(code)
     if not all(report.values()):
-        print(f"Validation failed: {report}")  # В реале: raise or fix
+        print(f"Validation failed: {report}")
     return code, report
